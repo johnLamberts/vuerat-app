@@ -1,24 +1,17 @@
 <script>
-import { ref } from "vue";
 
 export default {
-  data() {
-    return {
-      message: "",
-    };
-  },
-
-  mounted() {
-    this.$refs.input.focus();
-
-    console.log(this.$refs);
-  },
+  props: ["modelValue", "msg"],
+  emits: ["update:modelValue"],
 };
 </script>
 
 <template>
-  <p>Your message is: {{ message }}</p>
-  <input ref="input" type="text" v-model="message" />
+  <h1>{{ msg }}</h1>
+
+  <br />
+
+  <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
 </template>
 
 <style scoped>

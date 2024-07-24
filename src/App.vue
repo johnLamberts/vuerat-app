@@ -1,5 +1,22 @@
-<script setup>
+<script>
 import HelloWorld from "./components/HelloWorld.vue";
+
+export default {
+  components: {
+    HelloWorld
+  },
+
+  data() {
+
+    return {
+      searchText: ""
+    }
+    
+    
+  },
+
+
+}
 </script>
 
 <template>
@@ -11,7 +28,7 @@ import HelloWorld from "./components/HelloWorld.vue";
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Hi, I am new to this framework so be good to me." />
+  <HelloWorld v-model="searchText" />
 </template>
 
 
